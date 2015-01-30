@@ -1,5 +1,5 @@
 import os
-from nester import print_lol
+import pickle
 
 man = []
 other = []
@@ -24,9 +24,9 @@ except IOError:
     print('The datafile is missing!')
 
 try:
-    with open("man_data.txt", 'w') as man_file, open('other_data.txt', 'w') as other_file:
-        print_lol(man, fh=man_file)
-        print_lol(other, fh=other_file)
+    with open("man_data.pickle", 'wb') as man_file, open('other_data.pickle', 'wb') as other_file:
+        pickle.dump(man, man_file)
+        pickle.dump(other, other_file)
 
-except IOError as err:
-    print('File error: ' + str(err))
+except pickle.PickleError as err:
+    print('Pickling error: ' + str(err))
