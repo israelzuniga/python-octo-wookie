@@ -5,8 +5,8 @@ import os
 #Change path for the current directory
 os.chdir('/home/israel/Development/Python_Exercises/python-octo-wookie/head1stpython/Chapter3')
 
-#Check if file exists
-if os.path.exists('sketch.txt'):
+#Start our program
+try:
     
     #Load the text file into 'data' variable
     data = open('sketch.txt')
@@ -25,7 +25,7 @@ if os.path.exists('sketch.txt'):
     #After all the iteration and printing, we close the file
     data.close()
 
-#If file does exists, we simply quit and display an error for the user/dev
-else:
+#If file doesn't exist we simply quit and display an error for the user/dev
+except:
     print('The data file is missing!')
         
