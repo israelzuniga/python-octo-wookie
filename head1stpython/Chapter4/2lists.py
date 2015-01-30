@@ -20,7 +20,12 @@ try:
     data.close()
 except IOError:
     print('The datafile is missing!')
-
-print(man)
-print(other)
-            
+try:
+    man_data = open('man_data.txt', 'w')
+    other_data = open('other_data.txt', 'w')
+    print(man, file=man_data)
+    print(other, file=other_data)
+    man_data.close()
+    other_data.close()
+except IOError:
+    print('File error!')
