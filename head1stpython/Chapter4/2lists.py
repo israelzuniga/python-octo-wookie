@@ -1,4 +1,5 @@
 import os
+from nester import print_lol
 
 man = []
 other = []
@@ -18,14 +19,14 @@ try:
             pass
 
     data.close()
+
 except IOError:
     print('The datafile is missing!')
+
 try:
-    man_data = open('man_data.txt', 'w')
-    other_data = open('other_data.txt', 'w')
-    print(man, file=man_data)
-    print(other, file=other_data)
-    man_data.close()
-    other_data.close()
-except IOError:
-    print('File error!')
+    with open("man_data.txt", 'w') as man_file, open('other_data.txt', 'w') as other_file:
+        print_lol(man, fh=man_file)
+        print_lol(other, fh=other_file)
+
+except IOError as err:
+    print('File error: ' + str(err))
