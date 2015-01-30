@@ -3,7 +3,7 @@
 import os
 
 #Change path for the current directory
-os.chdir('/home/israel/Development/Python_Exercises/python-octo-wookie/head1stpython/Chapter3')
+os.chdir('~/Development/Python_Exercises/python-octo-wookie/head1stpython/Chapter3')
 
 #Start our program
 try:
@@ -19,13 +19,13 @@ try:
                     print(role, end = '')
                     print(' said: ', end = '')
                     print(line_spoken, end = '')
-                except:
+                except ValueError:
                     pass
 
     #After all the iteration and printing, we close the file
     data.close()
 
 #If file doesn't exist we simply quit and display an error for the user/dev
-except:
+except IOError:
     print('The data file is missing!')
         
